@@ -92,26 +92,6 @@ def eval_perf_multi(Y, Y_):
 
     return accuracy, precision, recall
 
-def graph_data(X, Y_, Y, special=[]):
-    correct = []
-    incorrect = []
-
-    for i in range(Y_.shape[0]):
-        if Y_[i] == np.argmax(Y[i]):
-            correct.append(i)
-        else:
-            incorrect.append(i)
-     
-    sizes = np.repeat(20, len(Y_))
-    sizes[special] = 40
-
-    plt.scatter(X[correct, 0], X[correct, 1], c=['gray' if y == 0 else 'white' for y in Y_[correct]],
-                edgecolors='black', marker='o', s=sizes[correct])
-     
-    plt.scatter(X[incorrect, 0], X[incorrect, 1], c=['gray' if y == 0 else 'white' for y in Y_[incorrect]],
-                edgecolors='black', marker='s', s=sizes[incorrect])
-
-
 if __name__=="__main__":
     #np.random.seed(100)
     # instantiate the dataset
